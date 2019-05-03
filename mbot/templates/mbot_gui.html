@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>mbot GUI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mbot_gui.css' ) }}"/>
+</head>
+<body>
+    <table width="100%" cellpadding="2" cellspacing="2" style="border: 1px solid;">
+        <!-- ===== Left Panel ===== -->
+        <tr>
+            <td colspan="1" width="100%">
+                <img src="{{ url_for('video_feed') }}">
+            </td>
+
+            <!-- ===== Right Panel ===== -->
+            <td valign="top" border="1">
+                <h2>mbot Remote Control</h2>
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td colspan="3" style="text-align: center;">
+                            <img id="forward" src="{{ url_for('static', filename='images/arrow-forward.jpg') }}" width="100" alt="" align="middle">                     
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="33%" style="text-align: center;">
+                            <img id="left" src="{{ url_for('static', filename='images/arrow-left.jpg') }}" width="100" alt="" align="middle">
+                        </td>
+                        <td width="33%" style="text-align: center;">
+                                <img id="stop" src="{{ url_for('static', filename='images/stop.jpg') }}" width="100" alt="" align="middle">
+                        </td>
+                        <td width="33%" style="text-align: center;">
+                                <img id="right" src="{{ url_for('static', filename='images/arrow-right.jpg') }}" width="100" alt="" align="middle">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="text-align: center;">
+                            <img id="backward" src="{{ url_for('static', filename='images/arrow-backward.jpg') }}" width="100" alt="" align="middle">
+                        </td>
+                    </tr>   
+                </table>
+            </td>
+        </tr>
+    </table>
+    <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+    <script>
+        $(function() {
+            $('#forward').click(function() {
+                $.ajax({
+                    url: '/teleop/forward',
+                    type: 'get',
+                })
+            })
+            
+            $('#left').click(function() {
+                $.ajax({
+                    url: '/teleop/left',
+                    type: 'get',
+                })
+            })
+
+            $('#stop').click(function() {
+                $.ajax({
+                    url: '/teleop/stop',
+                    type: 'get',
+                })
+            })
+
+            $('#right').click(function() {
+                $.ajax({
+                    url: '/teleop/right',
+                    type: 'get',
+                })
+            })
+
+            $('#backward').click(function() {
+                $.ajax({
+                    url: '/teleop/backward',
+                    type: 'get',
+                })
+            })
+        })
+    </script>
+</body>
+</html>
