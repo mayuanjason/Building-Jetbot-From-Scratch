@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.65, user-scalable=yes">
+
+    <title>mbot Advanced GUI</title>
+
+    <!-- Style sheets -->
+    <link rel="stylesheet" href="../static/js/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" href="../static/js/jqwidgets/styles/jqx.ui-start.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/mbot_gui.css" type="text/css">
+
+    <!-- jQuery -->
+    <script src="../static/js/jquery-3.3.1.min.js"></script>
+
+    <!-- KinectJS -->
+    <script type="text/javascript" src="../static/js/kinetic-v5.1.0.min.js"></script>
+
+    <!-- jqWidgets -->
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxchart.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxdragdrop.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxexpander.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxgauge.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxradiobutton.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxslider.js"></script>
+    <script type="text/javascript" src="../static/js/jqwidgets/jqxtabs.js"></script>
+
+
+    <!-- The init() functions waits until the pages have loaded -->
+    <script type="text/javascript">
+        function init() {
+            function waitForDOM() {
+            var video = document.getElementById('videoCanvas');
+            var basePad = document.getElementById('baseContainer');
+                if (video == null || basePad == null) {
+                    setTimeout(waitForDOM, 100);
+                }
+            }
+            waitForDOM();
+        }
+    </script>
+</head>
+
+<!-- Run the init() script -->
+<body onload="init();">
+
+    <!-- Wrap the whole layout in a table -->
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+        <tr>
+            <td style="vertical-align:top;">                
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <!-- *** Left-Bottom Panel: Video Display -->
+                    <tr>
+                        <td style="vertical-align:top;">
+                            <!-- Display the mjpeg video canvas -->
+                            <div id="videoCanvas" style="text-align:center; margin-left:15px; position:relative; display:block;">
+                                <img src="{{ url_for('video_feed') }}">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+                
+            <!-- Right Panel: Base control and speed settings -->
+            <td style="vertical-align:top;text-align:center;">
+                <fieldset><legend>Base Control</legend>
+                        <div id="baseMessages" style="height:35px;"></div>
+                        <div id="baseContainer"></div>
+                </fieldset>
+            
+                <fieldset><!-- <legend>Base Max Speed</legend> -->
+                        <table border="0" cellpadding="0" cellspacing="0" style="width:100%; vertical-align:top; text-align:center;">
+                        <tr>
+                        <td align="right">Max Linear Spd: </td>
+                        <td><input id="maxLinearSpeed" min="0.01" max="1.0" step="0.01" value="0.7" onChange="maxLinearSpeedDisplay.value=this.value;setMaxLinearSpeed(this.value);" onInput="maxLinearSpeedDisplay.value=this.value;setMaxLinearSpeed(this.value);" type="range">&nbsp;<output id="maxLinearSpeedDisplay">1.0</output></td>
+                        </tr>
+                        <tr>
+                        <td align="right">Max Rotation Spd: </td>
+                        <td><input id="maxAngularSpeed" min="0.1" max="0.5" step="0.1" value="0.4" onChange="maxAngularSpeedDisplay.value=this.value;setMaxAngularSpeed(this.value);" onInput="maxAngularSpeedDisplay.value=this.value;setMaxAngularSpeed(this.value);" type="range">&nbsp;<output id="maxAngularSpeedDisplay">0.5</output></td>
+                        </tr>
+                        </table>
+                </fieldset>        
+            </td>
+        </tr>
+    </table>
+
+    <!-- Our own Javascript -->
+    <script type="text/javascript" src="../static/js/mbot_gui.js"></script>    
+</body>
+</html>
