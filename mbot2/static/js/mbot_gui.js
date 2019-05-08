@@ -91,7 +91,7 @@ basePad.on("mousemove touchmove", function() {
     vy = y * options['maxLinearSpeed'];
 
     updateBasePadMarker(vx, vy);
-    writeMessageById("baseMessages", " vx: " + Math.round(y * 100)/100 + ", vz: " + Math.round(x*100)/100, "green");
+    // writeMessageById("baseMessages", " vx: " + Math.round(y * 100)/100 + ", vz: " + Math.round(x*100)/100, "green");
     pubCmdVel();
 });
 
@@ -133,7 +133,7 @@ function writeMessageById(id, message, color) {
     color = typeof color !== 'undefined' ? color: "#006600";
     element = document.getElementById(id);
     element.innerHTML = message;
-    element.style.font = "18pt Calibri";
+    element.style.font = "15pt Calibri";
     element.style.color = color;
 }
 
@@ -150,7 +150,7 @@ function pubCmdVel() {
         type: 'get',
     })
 
-    writeMessageById("baseMessages", " leftSpeed: " + Math.round(leftSpeed*100)/100 + ", rightSpeed: " + Math.round(rightSpeed*100)/100);
+    writeMessageById("baseMessages", "leftSpeed: " + Math.round(leftSpeed*100)/100 + ", rightSpeed: " + Math.round(rightSpeed*100)/100);
 }
 
 function stopRobot() {
