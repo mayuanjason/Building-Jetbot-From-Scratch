@@ -42,43 +42,6 @@
         </tr>
     </table>
     <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
-    <script>
-        $(function() {
-            $('#forward').click(function() {
-                $.ajax({
-                    url: '/teleop/forward',
-                    type: 'get',
-                })
-            })
-            
-            $('#left').click(function() {
-                $.ajax({
-                    url: '/teleop/left',
-                    type: 'get',
-                })
-            })
-
-            $('#stop').click(function() {
-                $.ajax({
-                    url: '/teleop/stop',
-                    type: 'get',
-                })
-            })
-
-            $('#right').click(function() {
-                $.ajax({
-                    url: '/teleop/right',
-                    type: 'get',
-                })
-            })
-
-            $('#backward').click(function() {
-                $.ajax({
-                    url: '/teleop/backward',
-                    type: 'get',
-                })
-            })
-        })
-    </script>
+    <script src="{{ url_for('static', filename='js/mbot_gui.js') }}"></script>
 </body>
 </html>
