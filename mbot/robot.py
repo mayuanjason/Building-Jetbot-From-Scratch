@@ -19,8 +19,7 @@ class Robot(SingletonConfigurable):
     
     def __init__(self, *args, **kwargs):
         super(Robot, self).__init__(*args, **kwargs)
-        # self.motor_driver = Adafruit_MotorHAT(i2c_bus=self.i2c_bus)
-        self.motor_driver = None
+        self.motor_driver = Adafruit_MotorHAT(i2c_bus=self.i2c_bus)
         self.left_motor = Motor(self.motor_driver, channel=self.left_motor_channel, alpha=self.left_motor_alpha)
         self.right_motor = Motor(self.motor_driver, channel=self.right_motor_channel, alpha=self.right_motor_alpha)
         
