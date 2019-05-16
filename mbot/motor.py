@@ -16,13 +16,12 @@ class Motor(Configurable):
         super(Motor, self).__init__(*args, **kwargs)  # initializes traitlets
 
         self._driver = driver
-        # self._motor = self._driver.getMotor(channel)
+        self._motor = self._driver.getMotor(channel)
         atexit.register(self._release)
         
     @traitlets.observe('value')
     def _observe_value(self, change):
-        # self._write_value(change['new'])
-        print("_observe_value ", change['new'])
+        self._write_value(change['new'])
 
     def _write_value(self, value):
         """Sets motor value between [-1, 1]"""
@@ -36,5 +35,4 @@ class Motor(Configurable):
 
     def _release(self):
         """Stops motor by releasing control"""
-        # self._motor.run(Adafruit_MotorHAT.RELEASE)
-        print("_release")
+        self._motor.run(Adafruit_MotorHAT.RELEASE)
