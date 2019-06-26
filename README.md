@@ -1,4 +1,4 @@
-# mbot
+# Building-Jetbot-From-Scratch
 
 这里记录了我从零开始搭建 Jetbot 的整个过程------从零件购买到用手机网页控制 Jetbot 运行。<br>
 [Jetbot 官网网址](https://github.com/NVIDIA-AI-IOT/jetbot)
