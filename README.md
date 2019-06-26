@@ -18,6 +18,6 @@
 
 ## [Wiki](https://github.com/mayuanjason/mbot/wiki)
 * [(Part I): 零件清单](https://github.com/mayuanjason/mbot/wiki/Bill-of-Materials)
-* [(Part II): 硬件安装]()
-* [(Part III): 软件安装]()
+* [(Part II): 硬件安装](https://github.com/mayuanjason/mbot/wiki/Hardware-Setup)
+* [(Part III): 软件安装](https://github.com/mayuanjason/mbot/wiki/Software-Setup)
 * [(Part IV): 网页远程控制](https://github.com/mayuanjason/mbot/wiki/Remote-Control)
