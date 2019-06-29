@@ -11,8 +11,11 @@
 
 
 ### Teleoperation
+### V0.2
 ![teleoperation](assets/teleoperation.gif)
-![teleoperation](assets/teleoperation.gif)
+
+### V0.3
+![teleoperation](assets/teleoperation-2.gif)
 
 ## 界面
 ### v0.1
