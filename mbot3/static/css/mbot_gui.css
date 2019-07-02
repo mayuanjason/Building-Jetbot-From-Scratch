@@ -5,10 +5,20 @@ body {
 }
 
 .wrapper {
+    position: relative;
     width: 95%;
     font-size: 14px;
     max-width: 60em;
     margin: 0 auto;
+}
+
+.aiming {
+    position: absolute;
+    margin: auto;
+    width: 20em;
+    height: 20em;
+    left:0; right:0; top:0; bottom:0;
+    border: .5px dashed #ccc;
 }
 
 .grid-a {

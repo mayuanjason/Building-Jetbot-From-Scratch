@@ -53,7 +53,7 @@ def teleop():
         robot.right(speed)
     elif opcode == 'stop':
         robot.stop()
-
+        
     return '', 204
 
 
@@ -94,6 +94,11 @@ def snapshot():
 
 @app.route('/video/<int:is_recording>')
 def video(is_recording):
+    if is_recording:
+        video_path = os.path.join(video_dir, str(uuid1()) + '.avi')
+        Camera.start_recording(video_path)
+    else:
+        Camera.stop_recording()
     return '', 204
 
 
